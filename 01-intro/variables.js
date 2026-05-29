@@ -11,4 +11,6 @@ console.log(age);
 let isStudent = true;
 //isStudent = "yes"; // This will cause a type error because 'isStudent' is declared as a boolean
 console.log(isStudent);
+
+
 export {};
