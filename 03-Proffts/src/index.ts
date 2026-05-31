@@ -1,2 +1,12 @@
-console.log("hello sabastine");
-console.log("typescript is not a bad decision");
+class User {
+            email: string
+        name: string
+        readonly city: string = ""
+    constructor(email: string, name: string) {
+        this.email = email;
+        this.name = name;
+    }
+}
+
+const Seb = new User("seb@example.com", "Sebastian");
+// Seb.city = "Bamenda";
