@@ -13,7 +13,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class User {
     email;
     name;
-    _courseCount = 1; //this is a private property that can only be accessed within the class. It is initialized with a default value of 1.
+    _courseCount = 1; //this is a protected property that can be accessed within the class and its subclasses. It is initialized with a default value of 1.
+    //protected is available in this class an any inherited class, but it is not available outside of these classes. It is a way to allow access to certain properties or methods for subclasses while keeping them hidden from the outside world.
     city = "Kom";
     constructor(email, name) {
         this.email = email;
@@ -36,6 +37,12 @@ class User {
     }
     get getAppleEmail() {
         return `apple${this.email}`; //this is a getter method that returns a string that combines the word "apple" with the user's email. It allows us to access this computed value as if it were a property, without needing to call it like a regular method. For example, we can access it using `Seb.getAppleEmail` instead of `Seb.getAppleEmail()`.
+    }
+}
+class subUser extends User {
+    family = true;
+    changeFamilySize() {
+        this._courseCount = 2; //i cant access the private property _courseCount here because it is private to the User class, and it can only be accessed within the User class. If I want to access it in the subUser class, I would need to change its visibility to protected in the User class, which would allow it to be accessed in the subUser class and any other subclasses of User. what i can do is change the _courseCount from private to protected in the User class, and then i can access it here in the subUser class. However, if I want to keep it private, I can use the getter and setter methods that are defined in the User class to access and modify the _courseCount property indirectly.
     }
 }
 const Seb = new User("seb@example.com", "Sebastian"); //thid is an instance of the User class
