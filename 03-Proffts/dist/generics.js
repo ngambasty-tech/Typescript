@@ -15,5 +15,13 @@ function identity3(val) {
 function identity4(val) {
     return val;
 } // better way of writing generic functions
-identity4({ company: "BMW", model: "M5" });
+// identity4<Car>({company: "BMW", model:"M5"})
+function getUserdetails(info) {
+    const myIndex = 3;
+    return info[myIndex];
+}
+const getMoreUserDetails = (info) => {
+    const myIndex = 5;
+    return info[myIndex];
+};
 //# sourceMappingURL=generics.js.map

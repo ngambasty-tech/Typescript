@@ -26,4 +26,15 @@ interface Car{
     model: string
 }
 
-identity4<Car>({company: "BMW", model:"M5"})
+// identity4<Car>({company: "BMW", model:"M5"})
+
+function getUserdetails<T>(info: T[]): T | undefined{
+
+    const myIndex = 3
+    return info[myIndex]
+}
+
+const getMoreUserDetails = <T>(info: T[]): T | undefined=> {
+    const myIndex = 5
+    return info[myIndex]
+}
