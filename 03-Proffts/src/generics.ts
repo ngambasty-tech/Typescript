@@ -38,3 +38,48 @@ const getMoreUserDetails = <T>(info: T[]): T | undefined=> {
     const myIndex = 5
     return info[myIndex]
 }
+
+
+interface Database {
+    connection: string,
+    username: string,
+    password: string
+}
+
+// function multipleFunction<T, U>(val1: T, val2: U):object {
+//     return {
+//         val1,
+//         val2
+//     }
+// }
+// multipleFunction(3, "ngam")
+
+// function multipleFunction<T extends string, U extends number>(val1: T, val2: U):object {
+//     return {
+//         val1,
+//         val2
+//     }
+// }
+// multipleFunction("ngam", 5)
+
+function multipleFunction<T, U extends Database>(val1: T, val2: U):object {
+    return {
+        val1,
+        val2
+    }
+}
+multipleFunction(3, { connection: "localhost", username: "ngam", password: "1234" })
+
+
+interface GCE{
+    subject: string,
+    marks: number
+}
+
+class Results<T>{
+    public person: T[] = []
+
+    addToList(info: T) {
+        this.person.push(info)
+    }
+}

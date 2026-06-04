@@ -24,4 +24,31 @@ const getMoreUserDetails = (info) => {
     const myIndex = 5;
     return info[myIndex];
 };
+// function multipleFunction<T, U>(val1: T, val2: U):object {
+//     return {
+//         val1,
+//         val2
+//     }
+// }
+// multipleFunction(3, "ngam")
+// function multipleFunction<T extends string, U extends number>(val1: T, val2: U):object {
+//     return {
+//         val1,
+//         val2
+//     }
+// }
+// multipleFunction("ngam", 5)
+function multipleFunction(val1, val2) {
+    return {
+        val1,
+        val2
+    };
+}
+multipleFunction(3, { connection: "localhost", username: "ngam", password: "1234" });
+class Results {
+    person = [];
+    addToList(info) {
+        this.person.push(info);
+    }
+}
 //# sourceMappingURL=generics.js.map
