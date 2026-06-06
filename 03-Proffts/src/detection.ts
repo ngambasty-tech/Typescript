@@ -71,3 +71,44 @@ function getFood(pet: Fish | Bird) {
         return "bird food";
     }
 }
+
+interface Circle {
+    kind: "circle",
+    radius: number
+}
+interface Square {
+    kind: "square",
+    sideLength: number
+}
+
+interface rectangle {
+    kind: "rectangle",
+    length: number,
+    width: number
+}
+
+type Shape = Circle | Square | rectangle
+
+function getShapeArea(shape: Shape) {
+    if (shape.kind === "circle") {
+        return Math.PI * shape.radius ** 2;
+    }
+    if (shape.kind === "square") {
+        return shape.sideLength ** 2;
+    }
+    return shape.length * shape.width;
+}
+
+function getArea(shape: Shape) {
+    switch (shape.kind) {
+        case "circle":
+            return Math.PI * shape.radius ** 2;
+        case "square":
+            return shape.sideLength ** 2;
+        case "rectangle":
+            return shape.length * shape.width;
+        default:
+            const _defaultshape: never = shape;
+            return _defaultshape; //this default should never run because we have covered all the cases in the switch statement and if we add a new shape to the Shape type we will get an error because we have not handled that case in the switch statement
+    }
+}

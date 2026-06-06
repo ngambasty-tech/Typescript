@@ -52,4 +52,26 @@ function getFood(pet) {
         return "bird food";
     }
 }
+function getShapeArea(shape) {
+    if (shape.kind === "circle") {
+        return Math.PI * shape.radius ** 2;
+    }
+    if (shape.kind === "square") {
+        return shape.sideLength ** 2;
+    }
+    return shape.length * shape.width;
+}
+function getArea(shape) {
+    switch (shape.kind) {
+        case "circle":
+            return Math.PI * shape.radius ** 2;
+        case "square":
+            return shape.sideLength ** 2;
+        case "rectangle":
+            return shape.length * shape.width;
+        default:
+            const _defaultshape = shape;
+            return _defaultshape; //this default should never run because we have covered all the cases in the switch statement and if we add a new shape to the Shape type we will get an error because we have not handled that case in the switch statement
+    }
+}
 //# sourceMappingURL=detection.js.map
