@@ -1,20 +1,19 @@
-function typesDetect(val: number | string){
-    if(typeof val === "number"){
-        return val.toFixed(2)
-    }
-    return val.toLowerCase()
+function typesDetect(val: number | string) {
+  if (typeof val === "number") {
+    return val.toFixed(2);
+  }
+  return val.toLowerCase();
 }
 
-function providedId(id: string | null){
-    if(!id){
-        console.log("Please provide an ID")
-        return 
-    }
-    return id.toLowerCase()
+function providedId(id: string | null) {
+  if (!id) {
+    console.log("Please provide an ID");
+    return;
+  }
+  return id.toLowerCase();
 }
 
 function printAll(strs: string | string[] | null) {
-
   if (strs) {
     if (typeof strs === "object") {
       for (const s of strs) {
@@ -26,22 +25,49 @@ function printAll(strs: string | string[] | null) {
   }
 }
 
-
 interface User {
-    name: string,
-    email: string
+  name: string;
+  email: string;
 }
 
 interface Admin {
-    name: string,
-    email: string,
-    isAdmin: boolean
+  name: string;
+  email: string;
+  isAdmin: boolean;
 }
 
 function isAdminAccount(account: User | Admin) {
-    //the in operator is used to check if the property isAdmin exists in the account object
-    if("isAdmin" in account){
-        return account.isAdmin;
+  //the in operator is used to check if the property isAdmin exists in the account object
+  if ("isAdmin" in account) {
+    return account.isAdmin;
+  }
+  return false;
+}
+
+function logValue(x: Date | string) {
+  if (x instanceof Date) {//this returns a true and from there we can access the date methods like toUTCString
+    console.log(x.toUTCString());
+  } else {
+    console.log(x.toUpperCase());
+  }
+}
+
+type Fish = {
+    swim: () => void
+}
+type Bird = {
+    fly: () => void
+}
+
+function getAnimal(pet: Fish | Bird): pet is Fish {
+    return (pet as Fish).swim !== undefined;
+}
+
+function getFood(pet: Fish | Bird) {
+    if (getAnimal(pet)) {
+        pet
+        return "fish food";
+    } else {
+        return "bird food";
     }
-    return false;
 }

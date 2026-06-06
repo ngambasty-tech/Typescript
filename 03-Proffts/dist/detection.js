@@ -32,4 +32,24 @@ function isAdminAccount(account) {
     }
     return false;
 }
+function logValue(x) {
+    if (x instanceof Date) { //this returns a true and from there we can access the date methods like toUTCString
+        console.log(x.toUTCString());
+    }
+    else {
+        console.log(x.toUpperCase());
+    }
+}
+function getAnimal(pet) {
+    return pet.swim !== undefined;
+}
+function getFood(pet) {
+    if (getAnimal(pet)) {
+        pet;
+        return "fish food";
+    }
+    else {
+        return "bird food";
+    }
+}
 //# sourceMappingURL=detection.js.map
