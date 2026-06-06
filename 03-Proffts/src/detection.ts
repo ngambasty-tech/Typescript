@@ -25,3 +25,23 @@ function printAll(strs: string | string[] | null) {
     }
   }
 }
+
+
+interface User {
+    name: string,
+    email: string
+}
+
+interface Admin {
+    name: string,
+    email: string,
+    isAdmin: boolean
+}
+
+function isAdminAccount(account: User | Admin) {
+    //the in operator is used to check if the property isAdmin exists in the account object
+    if("isAdmin" in account){
+        return account.isAdmin;
+    }
+    return false;
+}

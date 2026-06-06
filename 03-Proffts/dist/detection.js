@@ -25,4 +25,11 @@ function printAll(strs) {
         }
     }
 }
+function isAdminAccount(account) {
+    //the in operator is used to check if the property isAdmin exists in the account object
+    if ("isAdmin" in account) {
+        return account.isAdmin;
+    }
+    return false;
+}
 //# sourceMappingURL=detection.js.map
